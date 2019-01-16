@@ -1,0 +1,60 @@
+db.prompt.insertMany(
+[
+  {
+    'title': "Pmt_Dlg_ShortTip",
+    "description": "按下语音键，并且第一次等待识别没有录到任何声音之后，播放的简短提示",
+    "type": 2,
+    "play_beep": true,
+    "can_omit": false,
+    "show_hmi": true,
+    "barge_in": false,
+    "data": {
+      "light": [
+        "宝宝静静等着哦，主人有什么指示呢。",
+        "说个指令吧，宝宝已整装待发了哦。",
+        "宝宝静候主人指示哦。",
+        "宝宝默默地等着主人下令哦。",
+        "宝宝很乖哦，静静等着主人发令呢"
+      ],
+      "standard": [
+        "请给个指示。",
+        "请说命令。",
+        "请问您有什么指令。",
+        "请问您想让我做什么"
+      ]
+    },
+    "simple_data": {
+      "light": [
+        "请说命令",
+        "您有什么指示"
+      ],
+      "standard": [
+        "请说命令",
+        "您有什么指示"
+      ]
+    }
+  },
+  {
+    "title": "Pmt_Dlg_WakeUpTip",
+    "description": "被唤醒之后的提示",
+    "type": 2,
+    "can_omit": false,
+    "show_hmi": false,
+    "replace": {
+      "为": "为{{TTS_py|tags('wei4')}}"
+    },
+    "data": {
+      "light": [
+        "来了来了{{appellation}}",
+        "{{appellation}}为你效劳",
+        "{{appellation}}需要我做什么",
+      ],
+      "standard": [
+        "{{appellation}}来了来了",
+        "{{appellation}}为您效劳",
+        "{{appellation}}需要我做什么"
+      ],
+    }
+  }
+]
+)
